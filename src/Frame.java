@@ -110,6 +110,33 @@ public class Frame {
         return true;
     }
 
+    public void moveDown( Block block ) {
+        if (!isValidMoveDown(block))
+        {
+            block.setRow(block.getRow()-1);
+        }
+        addBlock(block);
+    }
+
+    public void moveLeft( Block block ) {
+        if (!isValidMoveLeft(block))
+        {
+            block.setRow(block.getRow()-1);
+            block.setColumn(block.getColumn()+1);
+            moveDown(block);
+        }
+        addBlock(block);
+    }
+    public void moveRight( Block block ) {
+        if (!isValidMoveRight(block))
+        {
+            block.setRow(block.getRow()-1);
+            block.setColumn(block.getColumn()-1);
+            moveDown(block);
+        }
+        addBlock(block);
+    }
+
 
 
 
