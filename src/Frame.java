@@ -24,6 +24,26 @@ public class Frame {
         }
     }
 
+    public void printFrame() {
+
+        for (int i = 0; i < this.row; i++) {
+            for (int j = 0; j < this.column; j++) {
+                System.out.print(this.frame[i][j]);
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public void addBlock( Block block ) {
+        for (int i = block.getRow(); i < block.getRow() + block.getMaxRow() && i < this.row; i++) {
+            for (int j = block.getColumn(); j < block.getColumn() + block.getMaxColumn() && j < this.column ; j++) {
+                if (block.getBlock()[i][j] == '*')
+                {
+                    this.frame[i][j] = '*';
+                }
+            }
+        }
+    }
 
 
 

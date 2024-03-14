@@ -56,6 +56,61 @@ public class Block {
         }
     }
 
+    public void printBlock() {
+        for (int i = 0; i < maxRow; i++) {
+            for (int j = 0; j < maxColumn; j++) {
+
+                System.out.print(this.block[i][j]);
+            }
+            System.out.print("\n");
+        }
+    }
+
+
+
+    //________________________ getter and setter :(
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getMaxRow() {
+        return maxRow;
+    }
+
+    public void setMaxRow(int maxRow) {
+        this.maxRow = maxRow;
+    }
+
+    public int getMaxColumn() {
+        return maxColumn;
+    }
+
+    public void setMaxColumn(int maxColumn) {
+        this.maxColumn = maxColumn;
+    }
+
+    public char[][] getBlock() {
+        return block;
+    }
+
+    public void setBlock(char[][] block) {
+        this.block = block;
+    }
+
+    //________________________ )
 
 
 
