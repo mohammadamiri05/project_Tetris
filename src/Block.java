@@ -13,6 +13,8 @@ public class Block {
     public Block() {
         this.maxColumn = 4 ;
         this.maxRow = 4 ;
+        this.row = 0;
+        this.column = Random.random(3,5);
         this.block = new char[maxRow][maxColumn];
         for (int i = 0; i < maxRow; i++) {
             for (int j = 0; j < maxColumn; j++) {
@@ -21,7 +23,6 @@ public class Block {
         }
         makeRandomBlock();
     }
-
 
     public void makeRandomBlock() {
         int nStars = Random.random(2,7) ;

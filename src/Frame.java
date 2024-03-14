@@ -35,14 +35,79 @@ public class Frame {
     }
 
     public void addBlock( Block block ) {
-        for (int i = block.getRow(); i < block.getRow() + block.getMaxRow() && i < this.row; i++) {
-            for (int j = block.getColumn(); j < block.getColumn() + block.getMaxColumn() && j < this.column ; j++) {
+        for (int i = 0 ; i < block.getMaxRow() ; i++) {
+            for (int j = 0 ; j < block.getMaxColumn() ; j++) {
                 if (block.getBlock()[i][j] == '*')
                 {
-                    this.frame[i][j] = '*';
+                    this.frame[i + block.getRow()][j + block.getColumn()] = '*';
                 }
             }
         }
+    }
+
+    public void clearBlock( Block block ) {
+        for (int i = 0 ; i < block.getMaxRow() ; i++) {
+            for (int j = 0 ; j < block.getMaxColumn() ; j++) {
+                if (block.getBlock()[i][j] == '*')
+                {
+                    this.frame[i + block.getRow()][j + block.getColumn()] = ' ';
+                }
+            }
+        }
+    }
+
+    public boolean isValidMoveDown( Block block ) {
+        clearBlock(block);
+        block.setRow(block.getRow()+1);
+        for (int i = 0 ; i < block.getMaxRow() ; i++) {
+            for (int j = 0 ; j < block.getMaxColumn() ; j++) {
+                if (block.getBlock()[i][j] == '*')
+                {
+                    if (this.frame[i + block.getRow()][j + block.getColumn()] == '*')
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+
+    }
+
+    public boolean isValidMoveLeft( Block block) {
+        clearBlock(block);
+        block.setRow(block.getRow()+1);
+        block.setColumn(block.getColumn()-1);
+        for (int i = 0 ; i < block.getMaxRow() ; i++) {
+            for (int j = 0 ; j < block.getMaxColumn() ; j++) {
+                if (block.getBlock()[i][j] == '*')
+                {
+                    if (this.frame[i + block.getRow()][j + block.getColumn()] == '*')
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidMoveRight(Block block) {
+        clearBlock(block);
+        block.setRow(block.getRow()+1);
+        block.setColumn(block.getColumn()+1);
+        for (int i = 0 ; i < block.getMaxRow() ; i++) {
+            for (int j = 0 ; j < block.getMaxColumn() ; j++) {
+                if (block.getBlock()[i][j] == '*')
+                {
+                    if (this.frame[i + block.getRow()][j + block.getColumn()] == '*')
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
 
