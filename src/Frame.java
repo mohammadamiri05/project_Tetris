@@ -65,6 +65,8 @@ public class Frame {
                 {
                     if (this.frame[i + block.getRow()][j + block.getColumn()] == '*')
                     {
+                        block.setRow(block.getRow() - 1);
+                        addBlock(block);
                         return false;
                     }
                 }
@@ -111,11 +113,10 @@ public class Frame {
     }
 
     public void moveDown( Block block ) {
-        if (!isValidMoveDown(block))
+        if (isValidMoveDown(block))
         {
-            block.setRow(block.getRow()-1);
+            addBlock(block);
         }
-        addBlock(block);
     }
 
     public void moveLeft( Block block ) {
@@ -135,6 +136,30 @@ public class Frame {
             moveDown(block);
         }
         addBlock(block);
+    }
+
+    public void Rotate( Block block )
+    {
+
+    }
+
+    public void choseMove(char move , Block block ) {
+
+        switch (move)
+        {
+            case 'D':
+                moveDown(block);
+                break;
+            case 'L':
+                moveLeft(block);
+                break;
+            case 'R':
+                moveRight(block);
+                break;
+            case 'O':
+                Rotate(block);
+                break;
+        }
     }
 
 
