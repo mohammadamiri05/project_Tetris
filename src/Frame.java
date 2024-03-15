@@ -4,7 +4,7 @@ public class Frame {
     private int column ;//weight of a block
     private char[][] frame ;
 
-
+    public Menu menu = new Menu();
     public Frame( int row , int column) {
         this.row = row;
         this.column = column;
@@ -138,29 +138,20 @@ public class Frame {
         addBlock(block);
     }
 
-    public void Rotate( Block block )
-    {
+    public void Rotate( Block block ) {
+        char[][] tempMatrix = new char[block.getMaxRow()][block.getMaxColumn()];
 
-    }
+        for (int i = 0; i < block.getMaxRow(); i++) {
+            for (int j = 0; j < block.getMaxColumn(); j++) {
 
-    public void choseMove(char move , Block block ) {
-
-        switch (move)
-        {
-            case 'D':
-                moveDown(block);
-                break;
-            case 'L':
-                moveLeft(block);
-                break;
-            case 'R':
-                moveRight(block);
-                break;
-            case 'O':
-                Rotate(block);
-                break;
+                tempMatrix[j][block.getMaxRow() - i - 1] = block.getBlock()[i][j];
+            }
         }
+        block.setBlock(tempMatrix);
+        moveDown(block);
+        addBlock(block);
     }
+
 
 
 

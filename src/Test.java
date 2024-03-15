@@ -9,7 +9,7 @@ public class Test {
                 frame.addBlock(block);
                 frame.printFrame();
                 while (frame.isValidMoveDown(block)){
-                    frame.choseMove(Menu.input.next().charAt(0),block);
+                    frame.menu.choseMove(frame,block);
                     frame.printFrame();
                     System.out.println("_______________________________");
                 }

@@ -7,7 +7,7 @@ public class Menu {
 
     public void choseMove(Frame frame, Block block ) {
 
-        System.out.println("Chose your move: ");
+        System.out.print("Chose your move: ");
         switch (input.next().charAt(0))
         {
             case 'D':

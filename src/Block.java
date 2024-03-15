@@ -14,7 +14,7 @@ public class Block {
         this.maxColumn = 5 ;
         this.maxRow = 5;
         this.row = 0;
-        this.column = 4;
+        this.column = Random.random(3,5);
         this.block = new char[maxRow][maxColumn];
         for (int i = 0; i < maxRow; i++) {
             for (int j = 0; j < maxColumn; j++) {
